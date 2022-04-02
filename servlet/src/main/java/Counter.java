@@ -1,16 +1,28 @@
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+public class Counter {
 
-public class Counter extends HttpServlet {
+  private int value;
 
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    PrintWriter writer = resp.getWriter();
-    writer.print("OK");
-    writer.flush();
+  public Counter() {
+    value = 0;
+  }
+
+  public int getCounter() {
+    return value;
+  }
+
+  public void increment() {
+    value++;
+  }
+
+  public void decrement(int number) {
+    if (number < value) {
+      value -= number;
+    } else {
+      value = 0;
+    }
+  }
+
+  public void clear() {
+    value = 0;
   }
 }
