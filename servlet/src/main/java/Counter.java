@@ -1,4 +1,5 @@
 public class Counter {
+  public static Counter COUNTER = new Counter();
 
   private int value;
 
